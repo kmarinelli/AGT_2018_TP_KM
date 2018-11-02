@@ -2,6 +2,7 @@
 using namespace std;
 
 #include <iomanip> 
+// This program creates a Mathematica dataset for DeCasteljau subdivisions of a control polygon.
 #include <iostream> 
 #include <stdio.h>
 #include <stdlib.h>
@@ -500,37 +501,38 @@ Point Bezier::Evaluate(double t)
 
 int main()
 {
-   Point *p;
+   Point *p; // Control point set to be used for the subdivision.
 
-   Bezier *C;
+   Bezier *C; // An array to receive the left and right half of a subdivided Bezier curve.
 
-   Bezier ***Q;
+   Bezier ***Q; // 2D Array of subdivided control polugons for p. The first dimension is the
+                // subdivision level is the vertex index of the control polygon.
 
-   int degree;
-   int i;
-   int j;
+   int degree;  // The number of levels that a control polygon will be subdivided.
+   int i;       // General index.
+   int j;       // General index.
 
-   string prefix;
-   string setName;
+   string prefix;  // Prefix annotation or the output.
+   string setName; // Name of the set for annotation.
 
-   double scale=pow(2,29);
+   double scale=pow(2,29);  // Integer scaling to be applied to p.
    //double scale=1.0;
    //double scale=1024;
    
 
-   Q= new Bezier**[L+1];
+   Q= new Bezier**[L+1];  // Create the number of control polygons which will be generated.
    for(i=0;i<(L+1);i++)
    {
-      Q[i]=new Bezier*[(int)pow(2,i)];
+      Q[i]=new Bezier*[(int)pow(2,i)]; // Create storage for each of the control polygons.
    }
 
-   degree=6;
+   degree=6;  // The degree of our control polygons.
 
-   p=new Point[degree+1];
+   p=new Point[degree+1];  // Create storage for the control polygon vertices.
 
    // Unknot
-   setName="Unknot";
-   prefix="VU";
+   setName="Unknot";       // The data is for an unknot.
+   prefix="VU";            // Prefix is for "Vertex Unknot".
    p[0].Set(0, 9, 20);
    p[1].Set(-15, -95, -50); 
    p[2].Set(40, 80, -20);
@@ -591,6 +593,7 @@ int main()
       }
    }
 
+   // Cleanup.
    for(i=0;i<(L+1);i++)
    {
          delete Q[i];
@@ -601,5 +604,5 @@ int main()
    delete p;
 
 
-   exit(0);
+   exit(0);  // We are done here!
 }
