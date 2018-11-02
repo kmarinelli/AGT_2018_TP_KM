@@ -1,8 +1,8 @@
+// This program creates a Mathematica dataset for DeCasteljau subdivisions of a control polygon.
 #include <iostream>
 using namespace std;
 
 #include <iomanip> 
-// This program creates a Mathematica dataset for DeCasteljau subdivisions of a control polygon.
 #include <iostream> 
 #include <stdio.h>
 #include <stdlib.h>
