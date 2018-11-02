@@ -1,6 +1,4 @@
 % subdvision data after 4 iterations to get $K_{1,4}$
-\small{
-\begin{verbatim}
 Q[0]: Y,Z
 {          0, 4831838208,10737418240 },
 { -503316480, 1342177280,8388608000 },
